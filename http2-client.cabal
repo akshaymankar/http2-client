@@ -15,13 +15,13 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Network.HTTP2.Client
-                     , Network.HTTP2.Client.Exceptions
-                     , Network.HTTP2.Client.FrameConnection
-                     , Network.HTTP2.Client.Helpers
-                     , Network.HTTP2.Client.RawConnection
-  other-modules:       Network.HTTP2.Client.Channels
-                     , Network.HTTP2.Client.Dispatch
+  exposed-modules:     Network.HTTP2.Client2
+                     , Network.HTTP2.Client2.Exceptions
+                     , Network.HTTP2.Client2.FrameConnection
+                     , Network.HTTP2.Client2.Helpers
+                     , Network.HTTP2.Client2.RawConnection
+  other-modules:       Network.HTTP2.Client2.Channels
+                     , Network.HTTP2.Client2.Dispatch
   build-depends:       base >= 4.7 && < 5
                      , async >= 2.1 && < 3
                      , bytestring >= 0.10 && < 1

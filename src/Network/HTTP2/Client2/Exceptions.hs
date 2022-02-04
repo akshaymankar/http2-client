@@ -1,5 +1,5 @@
 
-module Network.HTTP2.Client.Exceptions (
+module Network.HTTP2.Client2.Exceptions (
     ClientIO
   , ClientError(..)
   , runClientIO

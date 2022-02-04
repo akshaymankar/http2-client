@@ -7,7 +7,7 @@
 -- environment and that you want to send and receiving whole HTTP requests at
 -- once (i.e., you do not care about streaming individual HTTP
 -- requests/responses but want to make many requests).
-module Network.HTTP2.Client.Helpers (
+module Network.HTTP2.Client2.Helpers (
   -- * Sending and receiving HTTP body
     upload
   , waitStream
@@ -21,15 +21,15 @@ module Network.HTTP2.Client.Helpers (
   ) where
 
 import           Data.Time.Clock (UTCTime, getCurrentTime)
-import qualified Network.HTTP2 as HTTP2
+import qualified Network.HTTP2.Frame as HTTP2
 import qualified Network.HPACK as HPACK
 import           Data.ByteString (ByteString)
 import qualified Data.ByteString as ByteString
 import           Control.Concurrent.Lifted (threadDelay)
 import           Control.Concurrent.Async.Lifted (race)
 
-import Network.HTTP2.Client
-import Network.HTTP2.Client.Exceptions
+import Network.HTTP2.Client2
+import Network.HTTP2.Client2.Exceptions
 
 -- | Opaque type to express an action which timed out.
 data TimedOut = TimedOut

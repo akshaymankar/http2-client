@@ -1,6 +1,6 @@
 {-# LANGUAGE FlexibleContexts #-}
 {-# LANGUAGE BangPatterns #-}
-module Network.HTTP2.Client.Dispatch where
+module Network.HTTP2.Client2.Dispatch where
 
 import           Control.Exception (throwIO)
 import           Control.Monad.Base (MonadBase, liftBase)
@@ -14,10 +14,10 @@ import qualified Data.IntMap as IntMap
 import           GHC.Exception (Exception)
 import           Network.HPACK as HPACK
 import qualified Network.HPACK.Token as HPACK
-import           Network.HTTP2 as HTTP2
+import           Network.HTTP2.Frame as HTTP2
 
-import           Network.HTTP2.Client.Channels
-import           Network.HTTP2.Client.Exceptions
+import           Network.HTTP2.Client2.Channels
+import           Network.HTTP2.Client2.Exceptions
 
 type DispatchChan = FramesChan HTTP2Error
 

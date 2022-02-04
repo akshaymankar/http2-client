@@ -1,5 +1,5 @@
 
-module Network.HTTP2.Client.Channels (
+module Network.HTTP2.Client2.Channels (
    FramesChan
  , hasStreamId
  , hasTypeId
@@ -11,9 +11,9 @@ module Network.HTTP2.Client.Channels (
 
 import           Control.Concurrent.Chan.Lifted (Chan, readChan, newChan, writeChan)
 import           Control.Exception.Lifted (Exception, throwIO)
-import           Network.HTTP2 (StreamId, FrameHeader, FramePayload, FrameTypeId, framePayloadToFrameTypeId, streamId)
+import           Network.HTTP2.Frame (StreamId, FrameHeader, FramePayload, FrameTypeId, framePayloadToFrameTypeId, streamId)
 
-import           Network.HTTP2.Client.Exceptions
+import           Network.HTTP2.Client2.Exceptions
 
 type FramesChan e = Chan (FrameHeader, Either e FramePayload)
 

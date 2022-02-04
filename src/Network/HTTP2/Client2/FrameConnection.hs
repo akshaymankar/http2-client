@@ -3,7 +3,7 @@
 {-# LANGUAGE RecordWildCards  #-}
 {-# LANGUAGE RankNTypes  #-}
 
-module Network.HTTP2.Client.FrameConnection (
+module Network.HTTP2.Client2.FrameConnection (
       Http2FrameConnection(..)
     , newHttp2FrameConnection
     , frameHttp2RawConnection
@@ -22,13 +22,13 @@ import           Control.Exception.Lifted (bracket)
 import           Control.Concurrent.MVar.Lifted (newMVar, takeMVar, putMVar)
 import           Control.Monad ((>=>), void, when)
 import qualified Data.ByteString as ByteString
-import           Network.HTTP2 (FrameHeader(..), FrameFlags, FramePayload, HTTP2Error, encodeInfo, decodeFramePayload)
-import qualified Network.HTTP2 as HTTP2
+import           Network.HTTP2.Frame (FrameHeader(..), FrameFlags, FramePayload, HTTP2Error, encodeInfo, decodeFramePayload)
+import qualified Network.HTTP2.Frame as HTTP2
 import           Network.Socket (HostName, PortNumber)
 import qualified Network.TLS as TLS
 
-import           Network.HTTP2.Client.Exceptions
-import           Network.HTTP2.Client.RawConnection
+import           Network.HTTP2.Client2.Exceptions
+import           Network.HTTP2.Client2.RawConnection
 
 data Http2FrameConnection = Http2FrameConnection {
     _makeFrameClientStream :: HTTP2.StreamId -> Http2FrameClientStream

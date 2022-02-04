@@ -7,7 +7,7 @@
 -- session and interacting with a server.
 --
 -- For higher-level primitives, please refer to Network.HTTP2.Client.Helpers .
-module Network.HTTP2.Client (
+module Network.HTTP2.Client2 (
     -- * Basics
       runHttp2Client
     , newHttp2Client
@@ -40,8 +40,8 @@ module Network.HTTP2.Client (
     , _gtfo
     -- * Convenience re-exports
     , StreamEvent(..)
-    , module Network.HTTP2.Client.FrameConnection
-    , module Network.HTTP2.Client.Exceptions
+    , module Network.HTTP2.Client2.FrameConnection
+    , module Network.HTTP2.Client2.Exceptions
     , module Network.Socket
     , module Network.TLS
     ) where
@@ -57,14 +57,14 @@ import qualified Data.ByteString as ByteString
 import           Data.IORef.Lifted (newIORef, atomicModifyIORef', readIORef)
 import           Data.Maybe (fromMaybe)
 import           Network.HPACK as HPACK
-import           Network.HTTP2 as HTTP2
+import           Network.HTTP2.Frame as HTTP2
 import           Network.Socket (HostName, PortNumber)
 import           Network.TLS (ClientParams)
 
-import           Network.HTTP2.Client.Channels
-import           Network.HTTP2.Client.Dispatch
-import           Network.HTTP2.Client.Exceptions
-import           Network.HTTP2.Client.FrameConnection
+import           Network.HTTP2.Client2.Channels
+import           Network.HTTP2.Client2.Dispatch
+import           Network.HTTP2.Client2.Exceptions
+import           Network.HTTP2.Client2.FrameConnection
 
 -- | Offers credit-based flow-control.
 --

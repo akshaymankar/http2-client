@@ -2,7 +2,7 @@
 {-# LANGUAGE RecordWildCards  #-}
 {-# LANGUAGE RankNTypes  #-}
 
-module Network.HTTP2.Client.RawConnection (
+module Network.HTTP2.Client2.RawConnection (
       RawHttp2Connection (..)
     , newRawHttp2Connection
     , newRawHttp2ConnectionUnix
@@ -17,12 +17,12 @@ import           Data.ByteString (ByteString)
 import qualified Data.ByteString as ByteString
 import           Data.ByteString.Lazy (fromChunks)
 import           Data.Monoid ((<>))
-import qualified Network.HTTP2 as HTTP2
+import qualified Network.HTTP2.Frame as HTTP2
 import           Network.Socket hiding (recv)
 import           Network.Socket.ByteString
 import qualified Network.TLS as TLS
 
-import           Network.HTTP2.Client.Exceptions
+import           Network.HTTP2.Client2.Exceptions
 
 -- TODO: catch connection errrors
 data RawHttp2Connection = RawHttp2Connection {
